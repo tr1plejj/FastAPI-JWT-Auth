@@ -30,7 +30,7 @@ async def get_current_user(current_user: Annotated[User, Depends(get_current_act
 
 
 @router.post('/register', response_model=User)
-async def register(new_user: UserInDB):  # не принимать disabled
+async def register(new_user: UserInDB): 
     try:
         async with async_session() as session:
             hashed_password = hash_password(new_user.hashed_password)
